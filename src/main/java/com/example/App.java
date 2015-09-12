@@ -18,6 +18,11 @@ public class App {
 		return "Hello World!";
 	}
 
+	@RequestMapping("hoge")
+	String hoge() {
+		return "hoge";
+	}
+
 	public static void main(String[] args) {
 		SpringApplication.run(App.class, args);
 	}
