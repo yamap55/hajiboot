@@ -15,12 +15,17 @@ public class App {
 
 	@RequestMapping("/")
 	String home() {
-		return "Hello World!";
+		return "Hello World!!!";
 	}
 
 	@RequestMapping("hoge")
 	String hoge() {
 		return "hoge";
+	}
+
+	@RequestMapping("huga")
+	String huga() {
+		return "huga";
 	}
 
 	public static void main(String[] args) {

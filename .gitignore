@@ -34,3 +34,6 @@ overridedb.*
 *.jar
 .DS_Store
 .factorypath
+.metadata
+.recommenders
+.RemoteSystemsTempFiles
