@@ -4,7 +4,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import com.example.app.AddCalculator;
+import com.example.app.ArgumentResolver;
 import com.example.app.Calculator;
+import com.example.app.ScannerArgumentResolver;
 
 @Configuration
 public class AppConfig {
@@ -13,4 +15,8 @@ public class AppConfig {
 		return new AddCalculator();
 	}
 
+	@Bean
+	ArgumentResolver argumentResolver() {
+		return new ScannerArgumentResolver();
+	}
 }
