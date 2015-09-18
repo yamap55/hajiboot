@@ -1,0 +1,1 @@
+mvn -B archetype:generate -DgroupId=com.example -DartifactId=hajiboot-jdbc -Dversion=1.0.0-SNAPSHOT -DarchetypeArtifactId=maven-archetype-quickstart
