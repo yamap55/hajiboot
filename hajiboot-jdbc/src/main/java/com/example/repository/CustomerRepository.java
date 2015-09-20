@@ -27,7 +27,7 @@ public class CustomerRepository {
 	};
 
 	public List<Customer> findAll() {
-		List<Customer> customers = jdbcTemplate.query("SELECT id , first_name, lst_name FROM customers ORDER BY id",
+		List<Customer> customers = jdbcTemplate.query("SELECT id , first_name, last_name FROM customers ORDER BY id",
 				customerRowMapper);
 		return customers;
 	}
