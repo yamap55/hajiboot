@@ -29,7 +29,7 @@ public class App implements CommandLineRunner {
 
 		// ページング
 		Pageable pageable = new PageRequest(0, 3);
-		Page<Customer> page = customerRepository.findAll(pageable);
+		Page<Customer> page = customerRepository.findAllOrderByName(pageable);
 
 		System.out.println("1ページあたりのデータ数=" + page.getSize());
 		System.out.println("現在のページ=" + page.getNumber());
