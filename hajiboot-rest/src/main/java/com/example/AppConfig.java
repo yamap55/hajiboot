@@ -16,7 +16,7 @@ public class AppConfig {
 	DataSourceProperties dataSourceProperties;
 	DataSource dataSource;
 
-	@Bean
+	@Bean(destroyMethod = "close")
 	DataSource realDataSource() {
 		DataSourceBuilder factory = DataSourceBuilder.create(this.dataSourceProperties.getClassLoader())
 				.url(this.dataSourceProperties.getUrl()).username(this.dataSourceProperties.getUsername())
