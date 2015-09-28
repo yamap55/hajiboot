@@ -34,6 +34,7 @@ public class CustomerController {
 		return "customers/list";
 	}
 
+	@RequestMapping(value = "create", method = RequestMethod.POST)
 	String create(@Validated CustomerForm form, BindingResult result, Model model) {
 		if (result.hasErrors()) {
 			return list(model);

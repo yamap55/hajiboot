@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <title>顧客一覧</title>
+<link rel="stylesheet" type="text/css" href="../../static/css/style.css" th:href="@{/css/style.css}" />
 </head>
 <body>
 	<div>
@@ -25,7 +26,7 @@
 					<input type="text" id="firstName" name="firstName"
 						th:field="*{firstName}" th:errorclass="error-input" value="太郎" />
 					<span th:if="${#fields.hasErrors('firstName')}"
-						th:error="*{firstName}" class="error-messages">error!</span>
+						th:errors="*{firstName}" class="error-messages">error!</span>
 				</dd>
 			</dl>
 			<input type="submit" value="作成" />
