@@ -4,5 +4,7 @@ spring:
     url: jdbc:h2:file:/tmp/testdb
     username: sa
     password:
+  jpa:
+    hibernate.ddl-auto: validate
   thymeleaf:
     cache: false
