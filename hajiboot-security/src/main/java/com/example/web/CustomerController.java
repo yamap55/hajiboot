@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.web.bind.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.domain.Customer;
 import com.example.service.CustomerService;
+import com.example.service.LoginUserDetails;
 
 @Controller
 @RequestMapping("customers")
@@ -36,13 +38,14 @@ public class CustomerController {
 	}
 
 	@RequestMapping(value = "create", method = RequestMethod.POST)
-	String create(@Validated CustomerForm form, BindingResult result, Model model) {
+	String create(@Validated CustomerForm form, BindingResult result, Model model,
+			@AuthenticationPrincipal LoginUserDetails userDetails) {
 		if (result.hasErrors()) {
 			return list(model);
 		}
 		Customer customer = new Customer();
 		BeanUtils.copyProperties(form, customer);
-		customerService.create(customer);
+		customerService.create(customer, userDetails.getUser());
 		return "redirect:/customers";
 	}
 
@@ -54,7 +57,8 @@ public class CustomerController {
 	}
 
 	@RequestMapping(value = "edit", method = RequestMethod.POST)
-	String edit(@RequestParam Integer id, @Validated CustomerForm form, BindingResult result) {
+	String edit(@RequestParam Integer id, @Validated CustomerForm form, BindingResult result,
+			@AuthenticationPrincipal LoginUserDetails userDetails) {
 		if (result.hasErrors()) {
 			return editForm(id, form);
 		}
@@ -62,7 +66,7 @@ public class CustomerController {
 		Customer customer = new Customer();
 		BeanUtils.copyProperties(form, customer);
 		customer.setId(id);
-		customerService.update(customer);
+		customerService.update(customer, userDetails.getUser());
 		return "redirect:/customers";
 	}
 
