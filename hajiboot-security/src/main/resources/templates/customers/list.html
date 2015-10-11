@@ -50,6 +50,7 @@
 				<td th:text="${customer.id}">100</td>
 				<td th:text="${customer.lastName}">山田</td>
 				<td th:text="${customer.firstName}">太郎</td>
+				<td th:text="${customer.user.username}">duke</td>
 				<td>
 					<form th:action="@{/customers/edit}" method="get">
 						<input class="btn btn-default" type="submit" name="form"
