@@ -23,7 +23,7 @@ public class CustomerService {
 	}
 
 	public List<Customer> findAll() {
-		return customerRepository.findAllOrderByName();
+		return customerRepository.findAllWithUserOrderByName();
 	}
 
 	public Customer findOne(Integer id) {
