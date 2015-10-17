@@ -7,11 +7,15 @@
     <artifactId>hajiboot-heroku</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 
+    <name>hajiboot-heroku</name>
     <!-- (1) -->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
+<!--
         <version>1.2.5.RELEASE</version>
+-->
+        <version>1.1.8.RELEASE</version>
     </parent>
 
     <dependencies>
